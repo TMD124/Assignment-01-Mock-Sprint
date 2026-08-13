@@ -10,6 +10,17 @@ import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
 
+import { Fraunces } from 'next/font/google';
+import { Nunito } from 'next/font/google';
+
+const fraunces = Fraunces({
+  subsets: ['latin']
+});
+
+const nunito = Nunito({
+  subsets: ['latin']
+});
+
 export default function SignInPage() {
   const router = useRouter()
   const { user, loading, signInWithEmail, signInWithGoogle } = useAuth()
@@ -65,14 +76,14 @@ export default function SignInPage() {
   <div className="min-h-screen flex flex-col items-center justify-center p-6">
     {/* Page title */}
     <div className="mb-6 text-center">
-      <h1 className="text-5xl font-bold tracking-tight text-zinc-900">
+      <h1 className={`${fraunces.className} text-5xl tracking-tight text-zinc-900`}>
         Team 54B
       </h1>
-      <p className="text-xl text-zinc-900">
+      <p className={`${nunito.className} whitespace-nowrap text-3xl text-zinc-900`}>
         Embedding the Virtual Health Precinct
       </p>
     </div>
-    <div className="w-full max-w-lg border border-zinc-800 bg-white p-10">
+    <div className="w-full min-w-xl border border-zinc-800 bg-white p-10">
       <div className="space-y-6">
         <div className="space-y-1 text-center">
           <h1 className="text-2xl font-bold tracking-tight text-black">Sign in</h1>
