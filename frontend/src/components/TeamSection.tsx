@@ -99,7 +99,8 @@ function RoleTag({ role, color }: { role: string; color: Member["tagColor"] }) {
 
 function TeamCard({ member }: { member: Member }) {
     return (
-        <div className="flex w-full flex-1 flex-col rounded-2xl bg-white p-6 shadow-sm md:w-[calc(33.333%-1rem)] md:flex-none">
+        <div className="group relative flex w-full flex-1 flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:w-[calc(33.333%-1rem)] md:flex-none">
+            <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-emerald-600 transition-transform duration-300 group-hover:scale-x-100" />
             <div className="flex items-stretch gap-4">
                 <RoleTag role={member.role} color={member.tagColor} />
 
