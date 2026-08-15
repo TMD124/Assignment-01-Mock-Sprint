@@ -13,12 +13,11 @@ export default function LandingPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           {process.env.NEXT_PUBLIC_APP_NAME ?? 'App'}
         </h1>
-        <p className="max-w-md text-lg text-zinc-600 dark:text-zinc-400">
-          Your app description goes here. Edit{' '}
-          <code className="rounded bg-zinc-100 px-1 py-0.5 font-mono text-sm dark:bg-zinc-800">
-            src/app/page.tsx
-          </code>{' '}
-          to get started.
+        <p className="max-w-md text-2xl text-black">
+          Welcome to Team 54B:
+        </p>
+        <p className="max-w-md text-2xl text-black">
+          Embedding the Virtual Health Precinct
         </p>
       </div>
       <div className="flex gap-4">
