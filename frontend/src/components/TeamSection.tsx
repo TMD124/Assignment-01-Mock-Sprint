@@ -1,4 +1,5 @@
 import { Fraunces, Nunito, Lora, Inter } from "next/font/google";
+import Image from "next/image";
 
 // --- Fonts ---------------------------------------------------------------
 const display = Fraunces({
@@ -30,6 +31,7 @@ type Member = {
     name: string;
     role: string;
     bio: string;
+    image: string;
     tagColor: "blue" | "green" | "orange" | "purple";
 };
 
@@ -38,30 +40,35 @@ const team: Member[] = [
         name: "Tual Mun Khai Bawmkhai",
         role: "Project Manager",
         bio: "Khai is in his final semester studying a Bachelor of IT. He is the Project Manager for this project, and outside of his studies he enjoys playing all sorts of sport as well as spending time with friends.",
+        image: "/team/khai.png",
         tagColor: "blue",
     },
     {
         name: "Julia Ribera",
         role: "Business Analyst",
         bio: "Julia is studying a Bachelor of IT and currently serves as Business Analyst for this project. In her spare time she enjoys reading, travelling and trying new food places.",
+        image: "/team/julia.png",
         tagColor: "green",
     },
     {
         name: "Michael Mattas",
         role: "UI/UX Designer",
         bio: "Michael is completing a Bachelor of IT and takes on the UI/UX role for this project. He also works in an IT helpdesk, and in his free time enjoys playing games, drawing and reading.",
+        image: "/team/michael.png",
         tagColor: "orange",
     },
     {
         name: "Mitchell Long",
         role: "Developer 1",
         bio: "Mitchell is completing his Bachelor of Computer Science this year and is one of the developers on this project. He enjoys playing all types of games and messing with manky old computers.",
+        image: "/team/mitch.png",
         tagColor: "purple",
     },
     {
         name: "Cameron Nguyen",
         role: "Developer 2",
         bio: "Cameron is currently studying a Bachelor of IT and is one of the developers on this project. He enjoys playing video games in his spare time.",
+        image: "/team/cameron.png",
         tagColor: "purple",
     },
 ];
@@ -96,11 +103,13 @@ function TeamCard({ member }: { member: Member }) {
             <div className="flex items-stretch gap-4">
                 <RoleTag role={member.role} color={member.tagColor} />
 
-                {/* Picture placeholder — swap for a real images when assets are available */}
-                <div className="flex aspect-[3/4] flex-1 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-100">
-                    <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
-                        Picture
-                    </span>
+                <div className="relative aspect-[3/4] flex-1 overflow-hidden rounded-lg bg-slate-100">
+                    <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                    />
                 </div>
             </div>
 
